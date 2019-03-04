@@ -14,3 +14,15 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+/*
+|--------------------------------------------------------------------------
+| 取得模型
+|--------------------------------------------------------------------------
+能夠取得多個結果的 Eloquent 方法
+會回傳 Illuminate\Database\Eloquent\Collection 實例
+可使用 Collection 預設的方法
+*/
+Route::get('取得全部Flight', 'FlightController@getAll');
+Route::get('取得有條件限制的Flight', 'FlightController@getWhere');
