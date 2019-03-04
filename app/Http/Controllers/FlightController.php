@@ -86,4 +86,32 @@ class FlightController extends Controller
         $max = Flight::where('Active', 1)->max('price');
         dump($count, $max);
     }
+
+    /**
+     * 新增一筆資料
+     */
+    public function new_flight() {
+        $flight = new Flight;
+        $flight->Name = 'NewFlightName';
+        $flight->Price = 81000;
+        $flight->Active = 1;
+        $flight->Destination = 'Taiwan';
+        $flight->save();
+
+        dump($flight);
+    }
+
+    /**
+     * 修改原本的資料
+     */
+    public function update_flight() {
+        $flight = Flight::find(1);
+        $flight->Name = 'NewFlightName';
+        $flight->Price = 81000;
+        $flight->Active = 1;
+        $flight->Destination = 'Taiwan';
+        $flight->save();
+
+        dump($flight);
+    }
 }

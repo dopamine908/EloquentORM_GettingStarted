@@ -33,3 +33,11 @@ Route::get('取得有條件限制的Flight', 'FlightController@getWhere');
 |--------------------------------------------------------------------------
 */
 Route::get('find', 'FlightController@find');
+
+/*
+|--------------------------------------------------------------------------
+| 新增＆修改
+|--------------------------------------------------------------------------
+*/
+Route::get('new', 'FlightController@new_flight');
+Route::get('update', 'FlightController@update_flight');
