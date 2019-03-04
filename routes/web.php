@@ -26,3 +26,10 @@ Route::get('/', function () {
 */
 Route::get('取得全部Flight', 'FlightController@getAll');
 Route::get('取得有條件限制的Flight', 'FlightController@getWhere');
+
+/*
+|--------------------------------------------------------------------------
+| find, first, findOrFail, firstOrFail, aggregate
+|--------------------------------------------------------------------------
+*/
+Route::get('find', 'FlightController@find');

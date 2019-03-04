@@ -49,7 +49,41 @@ class FlightController extends Controller
      */
     public function cursor() {
         foreach (Flight::where('Active', 1)->cursor() as $flight) {
-            
+
         }
+    }
+
+    /**
+     * find
+     * first
+     *
+     * findOrFail
+     * firstOrFail
+     * findOrFail 和 firstOrFail 方法會取得查詢的第一個結果。
+     * 如果未能找到結果，Illuminate\Database\Eloquent\ModelNotFoundException 會拋出例外
+     * 如果沒有捕獲例外，則會自動發送 404 HTTP 會應給使用者
+     *
+     * aggregate
+     * 你也可以使用查詢建構器提供的 count、sum、max 和其他 aggregate 方法
+     */
+    public function find() {
+        $flight_1 = Flight::find(1);
+        $flight_2 = Flight::where('Active', 1)->first();
+        $flight_3 = Flight::find([1, 2, 3]);
+        dump($flight_1, $flight_2, $flight_3);
+
+        $findOrFail_success = Flight::findOrFail(1);
+        dump($findOrFail_success);
+        $findOrFail_failed = Flight::findOrFail(999999);
+        dump($findOrFail_failed);
+
+        $firstOrFail_success = Flight::where('FlightId', '>', 1)->firstOrFail();
+        dump($firstOrFail_success);
+        $firstOrFail_failed = Flight::where('FlightId', '>', 999999)->firstOrFail();
+        dump($firstOrFail_failed);
+
+        $count = Flight::where('Active', 1)->count();
+        $max = Flight::where('Active', 1)->max('price');
+        dump($count, $max);
     }
 }
