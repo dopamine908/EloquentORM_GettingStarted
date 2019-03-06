@@ -63,10 +63,11 @@ class Flight extends Model
 
     /**
      * 可被批量賦值的屬性。
+     * 需設定才能使用 firstOrCreate, firstOrNew, updateOrCreate
      *
      * @var array
      */
-//    protected $fillable = ['Ｎame', 'Price'];
+    protected $fillable = ['Name', 'Price', 'Destination'];
 
     /**
      * 不可被批量賦值的屬性。

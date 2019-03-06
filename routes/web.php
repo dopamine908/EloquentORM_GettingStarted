@@ -48,3 +48,13 @@ Route::get('update', 'FlightController@update_flight');
 |--------------------------------------------------------------------------
 */
 Route::get('update_many', 'FlightController@update_many');
+
+/*
+|--------------------------------------------------------------------------
+| 其他建立方法
+|--------------------------------------------------------------------------
+firstOrCreate
+firstOrNew
+updateOrCreate
+*/
+Route::get('找不到就新增', 'FlightController@firstOr');

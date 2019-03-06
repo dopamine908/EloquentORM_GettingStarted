@@ -122,4 +122,50 @@ class FlightController extends Controller
     public function update_many() {
         Flight::create(['Name' =>'testname','Destination' => 'Taiwan123333',  'Price' => 10]);
     }
+
+    /**
+     * 其他建立方法
+     * firstOrCreate
+     * firstOrNew
+     * updateOrCreate
+     */
+    public function firstOr () {
+        /**
+         * 找得到就返回
+         * 找不到就新增
+         */
+        $flight = Flight::firstOrCreate([
+            'Name' => 'testekna33',
+            'Destination' => 'Taiw3t3333',
+            'Price' => 1064
+        ]);
+        dump($flight);
+
+        /**
+         * 找得到就返回
+         * 找不到就創造一個
+         * 不新增
+         * 需要->save()才會新增
+         */
+        $flight = Flight::firstOrNew([
+            'Name' => 't123',
+            'Destination' => 'T123',
+            'Price' => 1064
+        ]);
+        dump($flight);
+
+        /**
+         * 找得到就更新
+         * 找不到就新增
+         */
+        $flight = Flight::updateOrCreate([
+            'Name' => 't1233',
+            'Destination' => 'T1233',
+            'Price' => 1064
+            ],
+            [
+                'Price' => 81000
+            ]);
+        dump($flight);
+    }
 }
