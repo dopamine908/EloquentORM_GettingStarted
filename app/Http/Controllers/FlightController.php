@@ -168,4 +168,16 @@ class FlightController extends Controller
             ]);
         dump($flight);
     }
+
+    /**
+     * 刪除方法
+     */
+    public function delete_function() {
+        $flight = Flight::find(1)->delete();
+        dump($flight);
+
+        $flight = Flight::destroy([2,3,4]);
+        $flight = Flight::destroy(5);
+        dump($flight);
+    }
 }
