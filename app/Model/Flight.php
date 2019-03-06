@@ -60,4 +60,20 @@ class Flight extends Model
      * @var string
      */
 //    protected $dateFormat = 'U';
+
+    /**
+     * 可被批量賦值的屬性。
+     *
+     * @var array
+     */
+//    protected $fillable = ['Ｎame', 'Price'];
+
+    /**
+     * 不可被批量賦值的屬性。
+     * 如果你想要所有屬性都能被批量賦值
+     * 你可以定義 $guarded 屬性為空陣列：
+     *
+     * @var array
+     */
+//    protected $guarded = ['Destination'];
 }

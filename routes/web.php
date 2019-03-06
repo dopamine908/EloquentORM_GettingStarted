@@ -41,3 +41,10 @@ Route::get('find', 'FlightController@find');
 */
 Route::get('new', 'FlightController@new_flight');
 Route::get('update', 'FlightController@update_flight');
+
+/*
+|--------------------------------------------------------------------------
+| 可批量與不可批量Model設定
+|--------------------------------------------------------------------------
+*/
+Route::get('update_many', 'FlightController@update_many');

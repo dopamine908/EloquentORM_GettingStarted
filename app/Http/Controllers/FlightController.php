@@ -114,4 +114,12 @@ class FlightController extends Controller
 
         dump($flight);
     }
+
+    /**
+     * 可批量與不可批量Model設定
+     * 新增一筆資料做demo
+     */
+    public function update_many() {
+        Flight::create(['Name' =>'testname','Destination' => 'Taiwan123333',  'Price' => 10]);
+    }
 }
