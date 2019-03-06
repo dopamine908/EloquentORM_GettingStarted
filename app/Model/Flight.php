@@ -3,9 +3,25 @@
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
+/**
+ * 想要使用軟刪除功能要use SoftDeletes
+ */
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Flight extends Model
 {
+    /**
+     * 想要使用軟刪除功能要use SoftDeletes
+     */
+    use SoftDeletes;
+
+    /**
+     * 該屬性會變更為日期。
+     *
+     * @var array
+     */
+    protected $dates = ['deleted_at'];
+
     /**
      * The connection name for the model.
      * 為模型選擇連線名稱。

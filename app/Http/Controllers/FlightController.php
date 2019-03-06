@@ -180,4 +180,49 @@ class FlightController extends Controller
         $flight = Flight::destroy(5);
         dump($flight);
     }
+
+    /**
+     * 軟刪除的相關用法
+     */
+    public function soft_delete() {
+        /**
+         * 有設定軟刪除欄位（delete_at）
+         * 執行delete的時候會直接執行軟刪除指令
+         * 會在delete_at欄位新增時間
+         */
+        $flight = Flight::find(7)->delete();
+
+        /**
+         * 要查詢有被軟刪除過的資料比需要使用withTrashed()方法
+         */
+        $flight = Flight::withTrashed()->where('FlightId', '=', 6)->first();
+        dump($flight);
+
+        /**
+         * trashed()可以用來判斷物件是否有被軟刪除
+         */
+        if ($flight->trashed()) {
+            dump('被軟刪除過的');
+        }
+
+        /**
+         * 只取出有被軟刪除過的資料
+         */
+        $flight = Flight::onlyTrashed()->get();
+        dump($flight);
+
+        /**
+         * restore()可以將軟刪除狀態恢復成正常存在
+         */
+        $flight = Flight::withTrashed()->where('FlightId', '=', 6)->first()->restore();
+        dump($flight);
+
+        /**
+         * 強制刪除
+         */
+        $flight = Flight::withTrashed()->where('FlightId', '=', 7)->forceDelete();
+        dump($flight);
+
+
+    }
 }
