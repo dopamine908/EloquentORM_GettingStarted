@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Model\Flight;
 use App\Model\ScopeFlight;
 use App\Model\ScopeFlight_local;
+use App\Model\ScopeFlight_dynamic;
 
 class FlightController extends Controller
 {
@@ -257,5 +258,13 @@ class FlightController extends Controller
      */
     public function local_scope() {
         dump(ScopeFlight_local::active()->get());
+    }
+
+    /**
+     * 動態Scope
+     */
+    public function dynamic_scope() {
+        dump(ScopeFlight_dynamic::ofActive('1')->get());
+        dump(ScopeFlight_dynamic::ofActive('0')->get());
     }
 }
