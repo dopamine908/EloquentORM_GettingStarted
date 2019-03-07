@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Model\Flight;
+use App\Model\ScopeFlight;
 
 class FlightController extends Controller
 {
@@ -224,5 +225,29 @@ class FlightController extends Controller
         dump($flight);
 
 
+    }
+
+    /**
+     * 查看全域Scope結果
+     */
+    public function global_scope() {
+        /**
+         * 全域Scope寫在Model的boot
+         */
+        dump(ScopeFlight::all());
+
+        /**
+         * 移除全域Scope
+         */
+        dump(ScopeFlight::withoutGlobalScope(\App\Scope\DemoScope::class)->get());
+
+        /*
+         * 移除所有或多個全域Scope
+         */
+        dump(ScopeFlight::withoutGlobalScopes()->get());
+        dump(ScopeFlight::withoutGlobalScopes([
+            \App\Scope\AScope::class,
+            \App\Scope\BScope::class
+        ])->get());
     }
 }
