@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Model\Flight;
 use App\Model\ScopeFlight;
+use App\Model\ScopeFlight_local;
 
 class FlightController extends Controller
 {
@@ -249,5 +250,12 @@ class FlightController extends Controller
             \App\Scope\AScope::class,
             \App\Scope\BScope::class
         ])->get());
+    }
+
+    /**
+     * 局部Scope
+     */
+    public function local_scope() {
+        dump(ScopeFlight_local::active()->get());
     }
 }
