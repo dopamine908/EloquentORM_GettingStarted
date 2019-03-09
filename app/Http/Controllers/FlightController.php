@@ -267,4 +267,17 @@ class FlightController extends Controller
         dump(ScopeFlight_dynamic::ofActive('1')->get());
         dump(ScopeFlight_dynamic::ofActive('0')->get());
     }
+
+    /**
+     * 模型事件
+     * 新增的動作含有creating, created
+     */
+    public function flight_created_event() {
+        $flight = new Flight();
+        $flight->Name = 'new name';
+        $flight->Price = 12345;
+        $flight->Active = 1;
+        $flight->Destination = 'Kao';
+        $flight->save();
+    }
 }

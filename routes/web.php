@@ -93,3 +93,18 @@ Route::get('局部Scope', 'FlightController@local_scope');
 |--------------------------------------------------------------------------
 */
 Route::get('動態Scope', 'FlightController@dynamic_scope');
+
+/*
+|--------------------------------------------------------------------------
+| Model事件
+|--------------------------------------------------------------------------
+可以對於Model的生命週期中的動作執行時
+例如retrieved、creating、created、updating、updated、saving、saved、
+   deleting、deleted、restoring、restored
+指定要觸發的程式碼
+
+https://9iphp.com/series/how-to-use-events-and-observers-in-laravel
+https://9iphp.com/web/laravel/model-events-in-laravel.html
+*/
+
+Route::get('模型事件', 'FlightController@flight_created_event');
