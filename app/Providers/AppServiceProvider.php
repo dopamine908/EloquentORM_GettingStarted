@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Observers\FlightObserver;
+use App\Model\Flight;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,7 +15,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        /**
+         * 可以在一個 AppServiceProvider 中
+         * 使用 boot 方法來註冊 Observer
+         */
+        Flight::observe(FlightObserver::class);
     }
 
     /**

@@ -108,3 +108,19 @@ https://9iphp.com/web/laravel/model-events-in-laravel.html
 */
 
 Route::get('模型事件', 'FlightController@flight_created_event');
+
+/*
+|--------------------------------------------------------------------------
+| Model事件
+|--------------------------------------------------------------------------
+可以對於Model的生命週期中的動作執行時
+例如retrieved、creating、created、updating、updated、saving、saved、
+   deleting、deleted、restoring、restored
+指定要觸發的程式碼
+如果你在給定模型上監聽多個事件
+可以使用 Observer 來組織你的所有監聽器到單一個類別。
+
+https://9iphp.com/series/how-to-use-events-and-observers-in-laravel
+*/
+
+Route::get('監聽Model', 'FlightController@flight_created_event');
